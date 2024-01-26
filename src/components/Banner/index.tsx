@@ -1,34 +1,29 @@
-import * as S from './styles'
-import { Loading } from '../../styles'
-
 import Tag from '../Tag'
 import Button from '../Button'
-
-import { formataPreco } from '../ProductList'
+import Loader from '../Loader'
 
 import { useGetFeaturedGameQuery } from '../../services/api'
+import { parseToBrl } from '../../utils'
+
+import * as S from './styles'
 
 const Banner = () => {
-  const { data: game, isLoading } = useGetFeaturedGameQuery()
+  const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return (
-      <div className="container">
-        <Loading />
-      </div>
-    )
+    return <Loader />
   }
   console.log(game)
   return (
-    <S.Imagem style={{ backgroundImage: `url(${game.media.cover})` }}>
+    <S.Image style={{ backgroundImage: `url(${game.media.cover})` }}>
       <div className="container">
         <Tag size="big">Destaque do dia</Tag>
         <div>
-          <S.TituloBanner>{game?.name}</S.TituloBanner>
-          <S.Precos>
-            De <span>{formataPreco(game.prices.old)}</span> <br />
-            por apenas {formataPreco(game.prices.current)}
-          </S.Precos>
+          <S.TitleBanner>{game?.name}</S.TitleBanner>
+          <S.Prices>
+            De <span>{parseToBrl(game.prices.old)}</span> <br />
+            por apenas {parseToBrl(game.prices.current)}
+          </S.Prices>
         </div>
         <Button
           type="link"
@@ -38,7 +33,7 @@ const Banner = () => {
           Aproveitar
         </Button>
       </div>
-    </S.Imagem>
+    </S.Image>
   )
 }
 

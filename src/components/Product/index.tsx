@@ -20,14 +20,15 @@ const Product = ({
   image,
   id
 }: Props) => {
-  const getDescription = (description: string) => {
-    return description.length > 95
-      ? `${description.slice(0, 86)}...`
-      : description
+  const getDescription = (text: string) => {
+    return text.length > 95 ? `${text.slice(0, 86)}...` : text
   }
 
   return (
-    <S.CardProduct to={`/produto/${id}`}>
+    <S.CardProduct
+      title={`Clique aqui par ver mais detalhes do jogo: ${title}`}
+      to={`/produto/${id}`}
+    >
       <img src={image} alt="" />
       <S.Infos>
         {infos.map((info) => (

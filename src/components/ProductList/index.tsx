@@ -1,25 +1,19 @@
-import Game from '../../types/Game'
-
 import Section from '../Section'
 import Product from '../Product'
 
 import * as S from './styles'
+import { parseToBrl } from '../../utils'
+import Loader from '../Loader'
 
 export type Props = {
   title: string
   background: 'gray' | 'black'
-  games: Game[]
+  games?: Game[]
   id?: string
+  isLoading?: boolean
 }
 
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
-
-const ProductsList = ({ title, background, games, id }: Props) => {
+const ProductsList = ({ title, background, games, id, isLoading }: Props) => {
   const getGameTags = (game: Game) => {
     const tags = []
 
@@ -32,28 +26,32 @@ const ProductsList = ({ title, background, games, id }: Props) => {
     }
 
     if (game.prices.current) {
-      tags.push(formataPreco(game.prices.current))
+      tags.push(parseToBrl(game.prices.current))
     }
 
     return tags
   }
 
+  if (isLoading) {
+    return <Loader />
+  }
   return (
     <Section id={id} title={title} background={background}>
       <S.List>
-        {games.map((game) => (
-          <li key={game.id}>
-            <Product
-              id={game.id}
-              category={game.details.category}
-              description={game.description}
-              image={game.media.thumbnail}
-              infos={getGameTags(game)}
-              system={game.details.system}
-              title={game.name}
-            />
-          </li>
-        ))}
+        {games &&
+          games.map((game) => (
+            <li key={game.id}>
+              <Product
+                id={game.id}
+                category={game.details.category}
+                description={game.description}
+                image={game.media.thumbnail}
+                infos={getGameTags(game)}
+                system={game.details.system}
+                title={game.name}
+              />
+            </li>
+          ))}
       </S.List>
     </Section>
   )

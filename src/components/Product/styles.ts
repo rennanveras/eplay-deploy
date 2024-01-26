@@ -1,16 +1,17 @@
-import styled from 'styled-components'
-import { cores } from '../../styles'
-import { TagStyle } from '../Tag/styles'
 import { Link } from 'react-router-dom'
 
+import styled from 'styled-components'
+import { colors } from '../../styles'
+import { TagStyle } from '../Tag/styles'
+
 export const CardProduct = styled(Link)`
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   padding: 8px;
   border-radius: 8px;
   position: relative;
   text-decoration: none;
   display: block;
-  color: ${cores.branca};
+  color: ${colors.white};
   height: 100%;
 
   img {

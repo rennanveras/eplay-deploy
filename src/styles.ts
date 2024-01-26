@@ -1,11 +1,11 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  branca: '#EEE',
-  preto: '#111',
-  cinza: '#333',
-  verde: '#10AC84',
-  cinzaClaro: '#999999'
+export const colors = {
+  white: '#EEE',
+  black: '#111',
+  gray: '#333',
+  green: '#10AC84',
+  lightGray: '#999999'
 }
 
 export const breakpoint = {
@@ -24,8 +24,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.preto};
-    color: ${cores.branca};
+    background-color: ${colors.black};
+    color: ${colors.white};
     padding-top: 40px;
   }
 
@@ -36,24 +36,6 @@ export const GlobalStyle = createGlobalStyle`
 
     @media (max-width: ${breakpoint.desktop}) {
       max-width: 80%;
-    }
-  }
-`
-
-export const Loading = styled.div`
-  border: 5px solid #0585e2;
-  border-radius: 50%;
-  border-bottom: 5px solid transparent;
-  height: 60px;
-  width: 60px;
-  animation: spinning 1s linear infinite;
-  margin: 60px auto;
-  @keyframes spinning {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
     }
   }
 `

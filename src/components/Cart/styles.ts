@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { breakpoint, cores } from '../../styles'
-import { TagStyle } from '../Tag/styles'
+import { breakpoint, colors } from '../../styles'
 import { ButtonStyle } from '../Button/styles'
 
 import close from '../../assets/images/gadgets/close.png'
@@ -31,10 +30,10 @@ export const Overlay = styled.div`
   opacity: 0.7;
 `
 export const Sidebar = styled.aside`
-  background-color: ${cores.cinza};
+  background-color: ${colors.gray};
   z-index: 1;
   padding: 40px 16px 0;
-  color: ${cores.branca};
+  color: ${colors.white};
   max-width: 360px;
   width: 100%;
 
@@ -44,6 +43,13 @@ export const Sidebar = styled.aside`
 
   @media (max-width: ${breakpoint.tablet}) {
     width: 260px;
+  }
+
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.white};
+    text-align: center;
   }
 `
 
@@ -62,7 +68,7 @@ export const Prices = styled.p`
   span {
     display: block;
     font-size: 12px;
-    color: ${cores.cinzaClaro};
+    color: ${colors.lightGray};
   }
 `
 
@@ -70,7 +76,7 @@ export const CartItem = styled.li`
   position: relative;
   display: flex;
   gap: 23px;
-  border-bottom: 1px solid ${cores.cinzaClaro};
+  border-bottom: 1px solid ${colors.lightGray};
   padding: 8px 0;
 
   div {

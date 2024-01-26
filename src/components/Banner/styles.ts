@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { TagStyle } from '../Tag/styles'
 
-export const Imagem = styled.div`
+export const Image = styled.div`
   background-position: top;
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,11 +35,11 @@ export const Imagem = styled.div`
   }
 `
 
-export const TituloBanner = styled.h2`
+export const TitleBanner = styled.h2`
   font-size: 36px;
   max-width: 450px;
 `
-export const Precos = styled.p`
+export const Prices = styled.p`
   font-size: 24px;
   margin-top: 24px;
 

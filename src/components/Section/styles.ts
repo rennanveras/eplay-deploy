@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 import { Props } from '.'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { CardProduct } from '../Product/styles'
 
-export const Container = styled.section<Omit<Props, 'title' | 'games'>>`
+export const Container = styled.section<
+  Omit<Props, 'title' | 'games' | 'isLoading'>
+>`
   padding: 32px 0;
   background-color: ${(props) =>
-    props.background === 'black' ? cores.preto : cores.cinza};
+    props.background === 'black' ? colors.black : colors.gray};
 
   ${CardProduct} {
     background-color: ${(props) =>
-      props.background === 'gray' ? cores.preto : cores.cinza};
+      props.background === 'gray' ? colors.black : colors.gray};
   }
 
   p {
@@ -29,5 +31,5 @@ export const Title = styled.h2`
 
 export const galeria = styled.div`
   border-radius: 8px;
-  border: 2px solid ${cores.branca};
+  border: 2px solid ${colors.white};
 `
